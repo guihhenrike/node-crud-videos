@@ -14,7 +14,7 @@ export class DatabaseMemory {
         })
     }
     create(video) {
-        const videoId = randomUUID
+        const videoId = randomUUID()
 
         this.#videos.set(videoId, video)
     }

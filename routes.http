@@ -3,21 +3,26 @@ Content-Type: application/json
 
 {
     "title": "video 01",
-    "description": "esse é a descriçao",
+    "description": "essa é a descriçao",
     "duration": 180
 }
 
 ###
 
-GET http://localhost:3333/videos
+GET http://localhost:3333/videos?search=node
 
 ###
 
-PUT http://localhost:3333/videos/
+PUT http://localhost:3333/videos/ba300273-7605-4f47-9882-a0e1e57b69b8
 Content-Type: application/json
 
 {
-    "title": "video 01",
-    "description": "esse é a descriçao",
+    "title": "video 02",
+    "description": "essa é a descriçao",
     "duration": 180
 }
+
+###
+DELETE http://localhost:3333/videos/7f196787-a146-4033-863a-aa9a04cde512
+
+```

@@ -1,4 +1,3 @@
-
 import { fastify } from "fastify"
 import { DatabaseMemory  } from "./database-memory.js"
 
@@ -20,8 +19,12 @@ server.post('/videos', (request, reply) =>
         return reply.status(201).send()
     })
 
-server.get('/videos', () =>
+server.get('/videos', (request) =>
     {
+        const search = request.query
+
+        console.log(search)
+
         const videos = database.list()
 
         console.log(videos)
@@ -44,10 +47,15 @@ server.put('/videos/:id', (request, reply) =>
     
     })
 
-server.delete('/videos/:id', () =>
+server.delete('/videos/:id', (request, reply) =>
     {
-        return 'Hello node.js'
+        const videoId = request.params.id
+
+        database.delete(videoId)
+
+        return reply.status(204).send()
     })
+
 
 server.listen({
     port: 3333,
